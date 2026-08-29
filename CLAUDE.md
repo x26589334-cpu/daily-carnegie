@@ -7,7 +7,7 @@
 
 ## 기본 정보
 - **저장소**: github.com/x26589334-cpu/daily-carnegie
-- **배포 URL**: https://x26589334-cpu.github.io/daily-carnegie/ (커스텀 도메인 연결 시 `CNAME` 파일 추가 + 모든 페이지의 canonical/og:url + `sitemap.xml` + `robots.txt`의 URL 교체 필요)
+- **배포 URL**: https://dailycarnegie.com/ (커스텀 도메인 연결 시 `CNAME` 파일 추가 + 모든 페이지의 canonical/og:url + `sitemap.xml` + `robots.txt`의 URL 교체 필요)
 - **호스팅/배포**: GitHub Pages. `main` 브랜치에 **push하면 1~2분 뒤 자동 배포**됩니다. (빌드 과정 없음)
 - **기술**: 정적 HTML/CSS/JS. 폰트는 Pretendard(jsdelivr CDN) + Noto Serif KR(Google Fonts, 헤드라인용). 지도는 Google Maps iframe(API 키 없음).
 - **디자인 톤**: 딥 네이비(#0B1F3A) × 골드(#B8933F) × 아이보리. 세리프 헤드라인. "중후하고 고급스러운" CEO 교육 톤.
