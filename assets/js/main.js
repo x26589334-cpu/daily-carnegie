@@ -112,7 +112,7 @@
         msg.style.display = "block";
       }
 
-      var agree = form.querySelector('input[name="agree"]');
+      var agree = form.querySelector('input[name="개인정보동의"]');
       if (agree && !agree.checked) {
         show("개인정보 수집·이용에 동의해 주세요.", "#b42318");
         return;
@@ -125,7 +125,10 @@
         return;
       }
 
+      // 공용 Apps Script("웹 문의" 시트)가 쓰는 메타 필드: sheet/_form은 hidden input, _page/_time은 여기서 추가
       var data = new URLSearchParams(new FormData(form));
+      data.set("_page", location.pathname);
+      data.set("_time", new Date().toLocaleString("ko-KR"));
       var orig = btn ? btn.textContent : "";
       if (btn) { btn.disabled = true; btn.textContent = "전송 중..."; }
 
@@ -136,7 +139,7 @@
           form.reset();
         })
         .catch(function () {
-          show("⚠️ 전송에 실패했습니다. 잠시 후 다시 시도하거나 02-556-0113으로 연락 주세요.", "#b42318");
+          show("⚠️ 전송에 실패했습니다. 잠시 후 다시 시도하거나 010-6832-1994로 연락 주세요.", "#b42318");
         })
         .then(function () {
           if (btn) { btn.disabled = false; btn.textContent = orig; }
@@ -178,8 +181,8 @@
   if (document.querySelector(".call-float")) return;
   var a = document.createElement("a");
   a.className = "call-float";
-  a.href = "tel:025560113";
-  a.setAttribute("aria-label", "전화 상담 02-556-0113");
+  a.href = "tel:01068321994";
+  a.setAttribute("aria-label", "전화 상담 010-6832-1994");
   a.innerHTML = '<span class="call-float-ic" aria-hidden="true">☎</span><span class="call-float-tx">입학 상담</span>';
   document.body.appendChild(a);
 })();
