@@ -1,13 +1,13 @@
-# 데일카네기 최고경영자 과정 웹사이트
+# 데일리카네기 (Daily Carnegie) 웹사이트
 
 > 이 프로젝트를 처음 보는 사람(및 Claude)이 빠르게 이해하도록 정리한 안내서입니다.
 
 ## 한줄 요약
-데일카네기코리아(바인그룹)의 **최고경영자(CEO) 과정** 안내·입학 상담 사이트. **순수 정적 사이트**(HTML/CSS/JS)이며 프레임워크·서버·DB가 없습니다. GitHub Pages로 배포됩니다.
+**데일리카네기** = "매일 만나는 카네기 교육"이라는 뜻의 바인그룹 서비스 브랜드. 데일카네기코리아(바인그룹)의 **최고경영자(CEO) 과정** 안내·입학 상담 사이트. **순수 정적 사이트**(HTML/CSS/JS)이며 프레임워크·서버·DB가 없습니다. GitHub Pages로 배포됩니다.
 
 ## 기본 정보
-- **저장소**: github.com/x26589334-cpu/dalecarnegie-ceo
-- **배포 URL**: https://x26589334-cpu.github.io/dalecarnegie-ceo/ (커스텀 도메인 연결 시 `CNAME` 파일 추가 + 모든 페이지의 canonical/og:url + `sitemap.xml` + `robots.txt`의 URL 교체 필요)
+- **저장소**: github.com/x26589334-cpu/daily-carnegie
+- **배포 URL**: https://x26589334-cpu.github.io/daily-carnegie/ (커스텀 도메인 연결 시 `CNAME` 파일 추가 + 모든 페이지의 canonical/og:url + `sitemap.xml` + `robots.txt`의 URL 교체 필요)
 - **호스팅/배포**: GitHub Pages. `main` 브랜치에 **push하면 1~2분 뒤 자동 배포**됩니다. (빌드 과정 없음)
 - **기술**: 정적 HTML/CSS/JS. 폰트는 Pretendard(jsdelivr CDN) + Noto Serif KR(Google Fonts, 헤드라인용). 지도는 Google Maps iframe(API 키 없음).
 - **디자인 톤**: 딥 네이비(#0B1F3A) × 골드(#B8933F) × 아이보리. 세리프 헤드라인. "중후하고 고급스러운" CEO 교육 톤.
@@ -47,4 +47,4 @@
 
 ## ⚠️ 주의사항
 - **공개 저장소**입니다. 신청자 데이터(xlsx/csv), 시트 ID 외 비밀값(봇 토큰 등)은 절대 커밋 금지 (`.gitignore` 등록됨).
-- 브랜드 표기는 "데일카네기"(공식 표기)로 통일. "데일리카네기"가 아님.
+- **브랜드 표기 규칙**: 서비스명(로고·title·og:site_name·푸터·저작권)은 **"데일리카네기"**(Daily Carnegie, "매일 만나는 카네기 교육"). 교육 과정·역사·수료증 등 내용을 가리킬 때는 **"데일카네기"**(공식 표기) 그대로. 둘을 섞지 말 것.
