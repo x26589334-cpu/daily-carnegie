@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://x26589334-cpu.github.io/dalecarnegie-ceo/sitemap.xml
