@@ -1,34 +1,33 @@
 /* =========================================================================
-   데일리카네기 입학 상담 신청 → "웹 문의" 시트의 "데일리카네기" 탭 저장용 Apps Script
+   구글 "웹 문의" 시트 공용 Apps Script — 사이트별 탭 저장 (참고용 사본)
    -------------------------------------------------------------------------
-   ★ 현재 상태: apply.html 의 폼은 과외(perfectedu)·픽포스와 같은 공용 웹앱 URL로 보냅니다.
-     공용 스크립트가 sheet 파라미터로 탭을 고르지 않으면 "과외" 탭에 쌓이고,
-     "구분" 컬럼이 "데일리카네기-입학상담" 으로 표시되어 구분됩니다.
+   과외(perfectedu)·키즈·픽포스·데일리카네기 폼이 모두 이 웹앱 하나로 보냅니다.
+   폼이 sheet=탭이름 을 함께 보내면 해당 탭에, 없거나 허용 목록에 없으면 기본 탭("과외")에 저장.
+   데일리카네기 폼(apply.html)은 sheet=데일리카네기, _form=데일리카네기-입학상담 을 보냅니다.
 
-   ▶ 데일리카네기 전용 탭으로 나누고 싶을 때 (기존 과외/픽포스 스크립트는 안 건드림)
-   1) script.google.com 접속 → 왼쪽 위 [+ 새 프로젝트]
-   2) 편집기의 기존 코드 전부 지우고, 아래 전체를 붙여넣기 → 저장(💾)
-   3) [배포] → [새 배포] → 유형(톱니바퀴): 웹 앱
-        - 설명: 데일리카네기
-        - 실행 계정: 나
-        - 액세스 권한: 모든 사용자
-      → [배포] → 권한 승인 팝업 뜨면 [고급]→[안전하지 않음(이동)]→[허용]
-   4) 나오는 "웹 앱 URL"(.../exec) 을 apply.html 의 <form data-sheet="..."> 에 교체 → push
+   ▶ 수정 반영 방법 (URL 유지)
+   Apps Script 편집기에서 코드 교체 → 저장 → [배포] → [배포 관리]
+   → 기존 배포 연필(수정) → 버전: 새 버전 → [배포]
    ========================================================================= */
 
-var SHEET_ID   = "1UUS6le8gJTsuvaSDi31ZzuQjA214YD32xJFVgYx9cno"; // 웹 문의 시트 (과외·픽포스와 같은 파일)
-var SHEET_NAME = "데일리카네기"; // 저장할 탭 (없으면 자동 생성)
+var SHEET_ID   = "1UUS6le8gJTsuvaSDi31ZzuQjA214YD32xJFVgYx9cno";
+var SHEET_NAME = "과외"; // sheet 값이 없거나 허용 목록에 없을 때 기본 탭
 
-// 폼이 보내는 필드: 성함, 연락처, 회사명, 직책, 이메일, 관심과정, 문의내용, 개인정보동의
-// (+ 메타: sheet, _form, _page, _time — 헤더에는 안 들어감)
+// 사이트별 탭 (새 사이트 추가 시 여기에 한 줄 추가)
+var ALLOWED_TABS = {
+  "과외": true,         // 티칭코칭(perfectedu) · 키즈
+  "견적": true,         // 픽포스
+  "데일리카네기": true  // 데일리카네기 입학 상담
+};
+
 function doPost(e) {
   try {
     var ss = SpreadsheetApp.openById(SHEET_ID);
-    var sh = ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
     var p  = (e && e.parameter) ? e.parameter : {};
+    var tab = (p.sheet && ALLOWED_TABS[p.sheet]) ? p.sheet : SHEET_NAME;
+    var sh = ss.getSheetByName(tab) || ss.insertSheet(tab);
     var when = p._time || new Date().toLocaleString("ko-KR");
     var kind = p._form || "";
-
     var headers;
     if (sh.getLastRow() === 0) {
       headers = ["접수시각", "구분"];
@@ -41,7 +40,6 @@ function doPost(e) {
         if (headers.indexOf(k2) === -1) { headers.push(k2); sh.getRange(1, headers.length).setValue(k2); }
       }
     }
-
     var row = [];
     for (var i = 0; i < headers.length; i++) {
       var h = headers[i];
