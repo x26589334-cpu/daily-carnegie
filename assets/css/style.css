@@ -182,9 +182,9 @@ h1, h2, h3, h4 {
 .hero p.lead { font-size: 18.5px; color: var(--on-dark-text); margin-bottom: 38px; max-width: 560px; line-height: 1.8; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-.hero-meta { display: flex; gap: 0; margin-top: 56px; border-top: 1px solid rgba(255,255,255,.18); flex-wrap: wrap; }
-.hero-meta > div { padding: 24px 32px 0 0; margin-right: 32px; }
-.hero-meta .m-num { font-family: var(--font-serif); font-size: 36px; font-weight: 700; color: #fff; line-height: 1; letter-spacing: -0.01em; }
+.hero-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 20px; margin-top: 56px; border-top: 1px solid rgba(255,255,255,.18); }
+.hero-meta > div { padding: 24px 0 0; }
+.hero-meta .m-num { font-family: var(--font-serif); font-size: 31px; font-weight: 700; color: #fff; line-height: 1; letter-spacing: -0.01em; white-space: nowrap; }
 .hero-meta .m-num small { font-size: 18px; margin-left: 2px; color: #E2C77E; }
 .hero-meta .m-lbl { display: block; font-family: var(--font-sans); font-size: 13px; color: var(--on-dark-muted); font-weight: 600; margin-top: 10px; letter-spacing: .02em; }
 
@@ -303,7 +303,7 @@ h1, h2, h3, h4 {
 
 /* ---------- 일정 테이블 ---------- */
 .schedule { width: 100%; border-collapse: collapse; background: var(--color-paper); border: 1px solid var(--color-line); border-radius: var(--radius-lg); overflow: hidden; font-size: 15px; }
-.schedule th, .schedule td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--color-line); vertical-align: middle; }
+.schedule th, .schedule td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--color-line); vertical-align: middle; white-space: nowrap; }
 .schedule th { background: var(--color-primary); color: #fff; font-family: var(--font-sans); font-weight: 700; font-size: 13.5px; letter-spacing: .06em; }
 .schedule tr:last-child td { border-bottom: 0; }
 .schedule td b { font-family: var(--font-serif); font-size: 17px; color: var(--color-ink); }
@@ -381,7 +381,7 @@ h1, h2, h3, h4 {
 .contact-box { background: var(--color-bg-dark); color: #fff; border-radius: var(--radius-lg); padding: 32px 30px; position: relative; overflow: hidden; }
 .contact-box::before { content: ""; position: absolute; inset: 10px; border: 1px solid rgba(212,182,106,.3); pointer-events: none; border-radius: 6px; }
 .contact-box .k { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #D4B66A; font-weight: 700; margin-bottom: 10px; }
-.contact-box .tel { font-family: var(--font-serif); font-size: 30px; font-weight: 700; color: #fff; line-height: 1.1; }
+.contact-box .tel { font-family: var(--font-serif); font-size: clamp(24px, 6vw, 30px); font-weight: 700; color: #fff; line-height: 1.1; white-space: nowrap; }
 .contact-box p { font-size: 14px; color: var(--on-dark-text); margin-top: 8px; }
 .contact-box + .contact-box { background: var(--color-paper); color: var(--color-ink); border: 1px solid var(--color-line); }
 .contact-box + .contact-box::before { display: none; }
@@ -499,9 +499,9 @@ h1, h2, h3, h4 {
   .hero h1 { font-size: clamp(30px, 8vw, 42px); line-height: 1.25; margin-bottom: 18px; }
   .hero p.lead { font-size: 16px; margin-bottom: 26px; }
   .hero p.lead br { display: none; }
-  .hero-meta { margin-top: 36px; }
-  .hero-meta > div { padding-right: 20px; margin-right: 20px; }
-  .hero-meta .m-num { font-size: 30px; }
+  .hero .hero-actions .btn { flex: 1 1 150px; }
+  .hero-meta { margin-top: 36px; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+  .hero-meta .m-num { font-size: 28px; }
   .class-card { padding: 26px 22px 24px; }
   .class-card dl { grid-template-columns: 70px 1fr; font-size: 14px; }
   .grid-2, .grid-3, .grid-4, .process, .statband, .form-grid2, .info-grid, .curriculum { grid-template-columns: 1fr; }
