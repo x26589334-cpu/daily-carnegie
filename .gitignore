@@ -10,3 +10,7 @@ desktop.ini
 *.xls
 *.csv
 신청정보*
+
+# 원본 자료 보관 폴더 (포스터·브로슈어 원본 — 웹에 쓰는 파일만 assets/ 로 옮겨 커밋)
+# 134MB PDF 등이 있어 커밋하면 GitHub 100MB 파일 제한으로 push 가 실패합니다.
+event/

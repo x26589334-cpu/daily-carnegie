@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
   <title>개강 일정 · 입학 상담 신청 | 데일리카네기 · 데일카네기 최고경영자 과정</title>
-  <meta name="description" content="데일카네기 최고경영자 과정 서울 103기 개강 일정(2026.9.8~11.24, 매주 화 17:00~21:00)과 수강료 안내. 입학 상담을 신청하시면 담당자가 과정 안내서를 보내드립니다." />
+  <meta name="description" content="데일카네기 최고경영자 과정 2026년 하반기 전국 개강 일정. 서울·수원·용인·고양·광명·시흥·의정부·화성오산·부산 등 지역별 개강일과 교육 장소, 수강료(290만원~) 안내. 입학 상담 신청." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="데일리카네기" />
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:url" content="https://dailycarnegie.com/apply.html" />
   <meta property="og:title" content="개강 일정 · 입학 상담 신청 | 데일카네기 최고경영자 과정" />
-  <meta property="og:description" content="서울 103기 2026.9.8 개강. 입학 상담 신청" />
+  <meta property="og:description" content="2026년 하반기 전국 개강 일정 · 수강료 290만원~ · 입학 상담 신청" />
   <link rel="canonical" href="https://dailycarnegie.com/apply.html" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600;700&display=swap" />
-  <link rel="stylesheet" href="assets/css/style.css?v=2026082902" />
+  <link rel="stylesheet" href="assets/css/style.css?v=2026090401" />
 </head>
 <body>
 
@@ -47,7 +47,7 @@
       <div class="container">
         <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; 일정·신청</div>
         <h1>개강 일정 · 입학 상담</h1>
-        <p>서울 103기가 2026년 9월 8일 개강합니다. 아래 신청서를 남겨주시면 담당자가 과정 안내서와 함께 영업일 기준 1일 이내 연락드립니다.</p>
+        <p>2026년 하반기, 서울·수도권부터 부산·대구·광주까지 전국에서 개강합니다. 아래 신청서를 남겨주시면 담당자가 과정 안내서와 함께 영업일 기준 1일 이내 연락드립니다.</p>
       </div>
     </section>
 
@@ -56,22 +56,100 @@
       <div class="container">
         <div class="section-head reveal">
           <span class="eyebrow">Schedule</span>
-          <h2>개강 일정</h2>
-          <p>지사별 일정은 상담 시 안내해 드립니다.</p>
+          <h2>2026년 하반기 개강 일정</h2>
+          <p>전국 지사에서 순차적으로 개강합니다. 모집 상태는 오늘 날짜를 기준으로 자동 갱신됩니다.</p>
         </div>
+
+        <div class="sched-filter reveal" role="group" aria-label="지역 선택">
+          <button type="button" class="sf-btn is-on" data-filter="all">전체</button>
+          <button type="button" class="sf-btn" data-filter="수도권">수도권</button>
+          <button type="button" class="sf-btn" data-filter="영남">영남</button>
+          <button type="button" class="sf-btn" data-filter="충청·호남">충청 · 호남</button>
+        </div>
+
+        <!-- 각 행의 data-start / data-end 로 main.js 가 상태 뱃지를 계산합니다.
+             기수가 바뀌면 이 표의 날짜만 고치면 되고, 상태는 손대지 않습니다.
+             data-start 가 없는 행은 "일정 문의"로 표시됩니다. -->
         <div class="schedule-wrap reveal">
-          <table class="schedule">
-            <thead><tr><th>과정</th><th>기수</th><th>요일 · 시간</th><th>교육 기간</th><th>장소</th><th>상태</th></tr></thead>
+          <table class="schedule" id="class-table">
+            <thead><tr><th>지역 · 기수</th><th>개강</th><th>요일 · 시간</th><th>교육 장소</th><th>수강료</th><th>상태</th></tr></thead>
             <tbody>
-              <tr><td><b>최고경영자 과정</b></td><td>서울 103기</td><td>매주 화 · 17:00~21:00</td><td>2026. 9. 8 ~ 11. 24 (12주)</td><td>서울 (상담 시 안내)</td><td><span class="tag tag--open">모집 중</span></td></tr>
-              <tr><td><b>최고경영자 과정</b></td><td>서울 104기</td><td>추후 공지</td><td>2027년 상반기 예정</td><td>서울 (상담 시 안내)</td><td><span class="tag tag--soon">사전 접수</span></td></tr>
-              <tr><td><b>최고경영자 과정</b></td><td>대전충청 · 대구경북 · 부산경남</td><td>지사별 상이</td><td>상담 시 안내</td><td>각 지사</td><td><span class="tag tag--soon">문의</span></td></tr>
+              <tr data-area="수도권" data-start="2026-09-07" data-end="2026-11-30">
+                <td><b>화성 · 오산</b> 42기</td><td>9월 7일 (월)</td><td>매주 월 · 저녁</td>
+                <td class="place">YBM연수원</td><td>2,900,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="수도권" data-start="2026-09-08" data-end="2026-11-24">
+                <td><b>서울</b> 103기</td><td>9월 8일 (화)</td><td>매주 화 · 17:00~21:00</td>
+                <td class="place">카네기빌딩<span>서울 강남구 역삼로17길 47</span></td><td>4,000,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="영남" data-start="2026-09-08" data-end="2026-11-24">
+                <td><b>부산</b> 78기</td><td>9월 8일 (화)</td><td>매주 화 · 저녁</td>
+                <td class="place">부산벤처타워 809호<span>부산 사상구 모라로 22</span></td><td>2,900,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="수도권" data-start="2026-09-10" data-end="2026-12-03">
+                <td><b>용인</b> 58기</td><td>9월 10일 (목)</td><td>매주 목 · 18:00~22:00</td>
+                <td class="place">미주타운 504호<span>용인 기흥구 동백중앙로 203</span></td><td>2,900,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="수도권" data-start="2026-09-14" data-end="2026-12-07">
+                <td><b>고양</b> 55기</td><td>9월 14일 (월)</td><td>매주 월 · 저녁</td>
+                <td class="place">고양 상공회의소</td><td>2,900,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="수도권" data-start="2026-09-15" data-end="2026-12-01">
+                <td><b>의정부 · 양주 · 포천</b> 28기</td><td>9월 15일 (화)</td><td>매주 화 · 저녁</td>
+                <td class="place">양주 축협 2층</td><td>2,900,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="수도권" data-start="2026-09-16" data-end="2026-12-02">
+                <td><b>광명</b> 57기</td><td>9월 16일 (수)</td><td>매주 수 · 18:00~22:00</td>
+                <td class="place">데일카네기코리아 광명 강의장</td><td>2,900,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="수도권" data-start="2026-09-17" data-end="2026-12-10">
+                <td><b>수원</b> 67기</td><td>9월 17일 (목)</td><td>매주 목 · 18:00~22:00</td>
+                <td class="place">경기문화원 빛누리아트홀<span>수원 권선구 호매실로 237</span></td><td>2,900,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="수도권" data-start="2026-09-17" data-end="2026-12-10">
+                <td><b>시흥</b> 65기</td><td>9월 17일 (목)</td><td>매주 목 · 저녁</td>
+                <td class="place">시흥 카네기비즈니스센터</td><td>2,900,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="수도권" data-start="2026-09-21" data-end="2026-12-14">
+                <td><b>이천 · 여주 · 양평</b> 53기</td><td>9월 21일 (월)</td><td>매주 월 · 저녁</td>
+                <td class="place">상담 시 안내</td><td>2,900,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="수도권" data-start="2026-09-02" data-end="2026-11-18">
+                <td><b>파주</b> 27기</td><td>9월 2일 (수)</td><td>매주 수 · 저녁</td>
+                <td class="place">운정 청소년센터</td><td>2,900,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="영남" data-start="2026-09-03" data-end="2026-12-03">
+                <td><b>울산</b> 65기</td><td>9월 3일 (목)</td><td>매주 목 · 저녁</td>
+                <td class="place">상담 시 안내</td><td>2,750,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="수도권">
+                <td><b>광주 · 하남</b> 52기</td><td>일정 확인 중</td><td>매주 화 · 저녁</td>
+                <td class="place">상담 시 안내</td><td>2,900,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="충청·호남">
+                <td><b>대전</b> 53기</td><td>일정 확인 중</td><td>주 1회 · 저녁</td>
+                <td class="place">상담 시 안내</td><td>2,900,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="충청·호남">
+                <td><b>광주</b> 64기</td><td>일정 확인 중</td><td>주 1회 · 저녁</td>
+                <td class="place">상담 시 안내</td><td>2,900,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="영남">
+                <td><b>대구</b> 88기</td><td>일정 확인 중</td><td>주 1회 · 저녁</td>
+                <td class="place">상담 시 안내</td><td>2,900,000원</td><td><span class="tag"></span></td>
+              </tr>
+              <tr data-area="영남">
+                <td><b>진주</b> 75기</td><td>일정 확인 중</td><td>주 1회 · 저녁</td>
+                <td class="place">상담 시 안내</td><td>2,900,000원</td><td><span class="tag"></span></td>
+              </tr>
             </tbody>
           </table>
+          <p class="sched-empty" hidden>해당 지역에 모집 중인 기수가 없습니다. 아래 상담 신청을 남겨주시면 다음 기수 일정을 안내해 드립니다.</p>
         </div>
+        <p class="sched-note reveal">교육 기간은 12주(주 1회)이며, 지역에 따라 휴강·워크숍 일정으로 종료일이 1~2주 조정될 수 있습니다. 이미 개강한 기수는 목록에서 자동으로 내려갑니다.</p>
         <div class="info-grid reveal" style="margin-top:22px">
-          <div class="info-box"><div class="k">Tuition</div><div class="v">4,000,000원</div><div class="s">교재 · 저녁 식사 포함 / 세금계산서 발행</div></div>
-          <div class="info-box"><div class="k">Duration</div><div class="v">주 1회 · 12주</div><div class="s">17:00 ~ 21:00</div></div>
+          <div class="info-box"><div class="k">Tuition</div><div class="v">2,900,000원 ~</div><div class="s">지역별 상이 · 서울 4,000,000원 / 울산 2,750,000원<br />교재 · 석식 · 워크숍 포함 / 세금계산서 발행</div></div>
+          <div class="info-box"><div class="k">Duration</div><div class="v">주 1회 · 12주</div><div class="s">지역별 17:00~21:00 또는 18:00~22:00</div></div>
           <div class="info-box"><div class="k">Target</div><div class="v">CEO · 임원 · 전문직</div><div class="s">고위공무원 · 전문직 경영자</div></div>
           <div class="info-box"><div class="k">Capacity</div><div class="v">소수 정원</div><div class="s">선착순 마감</div></div>
         </div>
@@ -104,11 +182,17 @@
               <div class="form-row"><label for="f-course">관심 과정<span class="req">*</span></label>
                 <select id="f-course" name="관심과정" required>
                   <option value="">선택해 주세요</option>
-                  <option>서울 103기 (2026. 9. 8 개강)</option>
-                  <option>서울 104기 (2027년 상반기)</option>
-                  <option>대전충청 지사</option>
-                  <option>대구경북 지사</option>
-                  <option>부산경남 지사</option>
+                  <option>서울 103기 (9. 8 개강)</option>
+                  <option>부산 78기 (9. 8 개강)</option>
+                  <option>용인 58기 (9. 10 개강)</option>
+                  <option>고양 55기 (9. 14 개강)</option>
+                  <option>의정부·양주·포천 28기 (9. 15 개강)</option>
+                  <option>광명 57기 (9. 16 개강)</option>
+                  <option>수원 67기 (9. 17 개강)</option>
+                  <option>시흥 65기 (9. 17 개강)</option>
+                  <option>이천·여주·양평 53기 (9. 21 개강)</option>
+                  <option>대전 · 광주 · 대구 · 진주 (일정 문의)</option>
+                  <option>다음 기수 사전 상담</option>
                   <option>기업 맞춤 과정 문의</option>
                 </select>
               </div>
@@ -174,6 +258,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=2026082902"></script>
+  <script src="assets/js/main.js?v=2026090401"></script>
 </body>
 </html>
