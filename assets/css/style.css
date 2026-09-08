@@ -381,6 +381,7 @@ h1, h2, h3, h4 {
 .faq-item.open .faq-q .ar { transform: rotate(180deg); }
 .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
 .faq-a .inner { padding: 0 4px 26px 34px; color: var(--color-muted); font-size: 16px; }
+.faq-a .inner a { color: var(--color-primary); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- Form ---------- */
 .form-card { background: var(--color-paper); border: 1px solid var(--color-line); border-radius: var(--radius-lg); padding: 46px; box-shadow: var(--shadow); }
