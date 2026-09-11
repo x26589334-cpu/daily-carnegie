@@ -312,3 +312,68 @@
     })
     .catch(function () { /* 기본 표시 유지 */ });
 })();
+
+/* ---- 개강 일정표: 포스터 보기 (apply.html) ----
+   표의 <tr data-poster="..."> 가 있는 행에만 "포스터" 버튼이 생기고,
+   누르면 큰 이미지를 화면 가운데 띄웁니다. 포스터가 없는 기수는 아무것도 붙지 않습니다. */
+(function () {
+  var table = document.getElementById("class-table");
+  if (!table) return;
+
+  var rows = table.querySelectorAll("tbody tr[data-poster]");
+  if (!rows.length) return;
+
+  /* 오버레이는 한 번만 만들어 재사용 */
+  var box = document.createElement("div");
+  box.className = "poster-modal";
+  box.setAttribute("role", "dialog");
+  box.setAttribute("aria-modal", "true");
+  box.setAttribute("aria-label", "모집 안내 포스터");
+  box.hidden = true;
+  box.innerHTML =
+    '<div class="pm-inner">' +
+      '<button type="button" class="pm-close" aria-label="닫기">&times;</button>' +
+      '<img alt="" />' +
+    '</div>';
+  document.body.appendChild(box);
+
+  var img = box.querySelector("img");
+  var closeBtn = box.querySelector(".pm-close");
+  var lastFocus = null;
+
+  function open(src, alt, trigger) {
+    lastFocus = trigger || null;
+    img.src = src;
+    img.alt = alt || "모집 안내 포스터";
+    box.hidden = false;
+    document.body.classList.add("poster-open");
+    closeBtn.focus();
+  }
+
+  function close() {
+    box.hidden = true;
+    document.body.classList.remove("poster-open");
+    img.removeAttribute("src");
+    if (lastFocus) lastFocus.focus();
+  }
+
+  closeBtn.addEventListener("click", close);
+  box.addEventListener("click", function (e) { if (e.target === box) close(); });
+  document.addEventListener("keydown", function (e) {
+    if (!box.hidden && (e.key === "Escape" || e.key === "Esc")) close();
+  });
+
+  Array.prototype.forEach.call(rows, function (tr) {
+    var cell = tr.querySelector("td");
+    if (!cell) return;
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "poster-link";
+    btn.textContent = "포스터";
+    btn.addEventListener("click", function () {
+      open(tr.getAttribute("data-poster"), tr.getAttribute("data-poster-alt"), btn);
+    });
+    cell.appendChild(document.createTextNode(" "));
+    cell.appendChild(btn);
+  });
+})();
