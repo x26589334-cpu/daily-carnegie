@@ -26,10 +26,16 @@
 - `assets/images/photos/` — 홈 "수업 현장" 갤러리 사진 6장 (`lecture` `pep-talk` `group-work` `session` `busan-75` `certificate`). **아래 사진 취급 원칙 참고**
 - `assets/images/posters/` — 기수별 모집 포스터 4장 (`seoul-103` `suwon-67` `siheung-65` `uijeongbu`). 일정표에서 클릭하면 뜬다. **아래 포스터 게시 원칙 참고**
 - `google-apps-script.gs` — 상담폼 백엔드(구글 Apps Script) **참고용 사본** (연결 방법 주석 포함)
-- `sitemap.xml`, `robots.txt`, `.nojekyll`
+- `{슬러그}-ceo.html` × 19 — **지역별 최고경영자과정 페이지** (자동 생성물, 직접 고치지 말 것)
+- `blog.html` + `blog/` — **카네기 레터**(블로그). `blog.html` 과 `rss.xml` 은 자동 생성물
+- `content/letter-plan.md` — 카네기 레터 **75편 발행 계획**. 다음에 쓸 글은 여기서 고른다
+- `tools/gen-regions.ps1` · `tools/new-post.ps1` · `tools/build-blog.ps1` — 생성기 3종
+- `assets/images/og-image.png` — 카톡·페북 공유 썸네일 (1200×630, 네이비×골드)
+- `sitemap.xml`, `robots.txt`, `.nojekyll` — `sitemap.xml` 은 `build-blog.ps1` 이 만든다
 
 ## 공통 마크업
-헤더·푸터는 모든 페이지에 **복사되어** 있습니다(인클루드 없음). 메뉴를 바꾸면 7개 HTML 모두 수정해야 합니다.
+헤더·푸터는 모든 페이지에 **복사되어** 있습니다(인클루드 없음). **직접 쓴 7개 페이지**(index·program·about·alumni·faq·apply·privacy)는 메뉴를 바꾸면 7개 다 수정해야 합니다.
+단, **자동 생성되는 페이지(지역 19개·블로그 글)는 `index.html` 의 헤더·푸터를 읽어가므로 생성기만 다시 돌리면 따라옵니다.**
 메뉴: 과정 소개 / 데일카네기 / 동문·후기 / FAQ / 일정·신청 + 우측 전화번호·"입학 상담 신청" 버튼.
 
 ## 외부 연동
@@ -73,6 +79,35 @@
 - 처리에 쓴 스크립트(`blur.ps1` / `grid.ps1` / `resize.ps1`)는 저장소에 없다. 필요하면 위 방식대로 다시 만든다. **한글 주석을 넣으려면 UTF-8 BOM 으로 저장할 것** — Windows PowerShell 5.1 은 `.ps1` 을 ANSI 로 읽어 BOM 없는 UTF-8 한글이 깨지면서 파서가 죽는다.
 - 웹 게시 규격: 가로 1000px, JPEG 품질 78, `loading="lazy"` + `width`/`height` 명시(레이아웃 밀림 방지). 6장 합계 약 535KB.
 - 갤러리 하단에 "수강생 보호를 위해 얼굴과 이름표는 가려서 게시합니다" 문구를 유지한다 — 블러가 실수가 아니라 방침임을 알리는 역할.
+
+## 🔁 자동 생성 페이지 (2026-09-12 신설)
+
+**직접 고치지 말 것.** 아래 세 스크립트가 찍어내며, 손으로 고치면 다음 실행 때 덮어쓰인다.
+전부 **UTF-8 BOM** 으로 저장돼 있다 (PowerShell 5.1 은 `.ps1` 을 ANSI 로 읽어 한글이 깨진다).
+
+| 스크립트 | 하는 일 |
+|---|---|
+| `tools/gen-regions.ps1` | `apply.html` 의 `#class-table` 을 읽어 `{슬러그}-ceo.html` 19개 생성 |
+| `tools/new-post.ps1` | 본문 조각 + 제목·날짜·설명을 받아 `blog/{슬러그}.html` 한 편 생성 |
+| `tools/build-blog.ps1` | 기존 글의 헤더·푸터·캐시버전 동기화 + `blog.html`·`rss.xml`·`sitemap.xml` 재생성 |
+
+- **기수가 바뀌면**: `apply.html` 표만 고치고 `gen-regions.ps1` 실행 → 19개 지역 페이지가 한 번에 갱신된다.
+- **메뉴가 바뀌면**: 직접 쓴 7개 페이지를 고친 뒤 `gen-regions.ps1` + `build-blog.ps1` 을 둘 다 돌린다. 생성 페이지는 `index.html` 헤더를 읽어가므로 자동으로 맞춰진다.
+- **CSS/JS 를 고치면**: `*.html` 캐시버전을 올린 뒤 **반드시 생성기 둘 다 다시 돌린다.** 안 그러면 지역 페이지·블로그 글만 옛 버전을 물고 있다.
+- 지역 슬러그는 `gen-regions.ps1` 안의 `$slugs` 해시에 있다. **경기 광주·하남(`gwangju-hanam`)과 광주광역시(`gwangju`)를 절대 섞지 말 것.**
+
+## ✉️ 카네기 레터 운영 규칙
+브랜드명이 "매일 만나는 카네기 교육"이라 **하루 한 편**이 컨셉이자 SEO 전략이다.
+
+- **다음에 쓸 글은 `content/letter-plan.md` 에서 위에서부터 고른다.** 발행하면 `[x]` 로 표시한다.
+- **하루 한 편만.** 퍼펙트에듀처럼 하루 5편씩 양산하지 않는다 — 이 사이트는 수천만 원짜리 과정을 알아보는 대표가 보는 곳이라 양산글이 쌓이면 신뢰가 깎인다.
+- 글 구성은 **상황 → 카네기 원칙 → 현장 적용 → 한 줄 요약**. 원칙 소개로 시작하지 않는다.
+- 제목에 **리더가 실제로 검색할 상황**을 넣는다. "원칙 1: 비난하지 마라"(X) / "실적이 부진한 팀장에게 어떻게 말할 것인가"(O)
+- 분량 1,000~1,500자. 한 편에 원칙 하나.
+- ⚠️ **발행한 글은 고치지 않는다.** 제목을 바꾸면 검색 순위가 초기화된다 (`gwaoe-page` 에서 노출 44→12 로 떨어진 사례가 있다).
+- 글 하단 CTA 는 `new-post.ps1` 이 자동으로 붙이므로 본문에 따로 쓰지 않는다.
+- 발행 절차: 본문 조각 작성 → `new-post.ps1` → `build-blog.ps1` → 커밋·푸시.
+- 네이버 서치어드바이저에 `https://dailycarnegie.com/rss.xml` 을 등록해 두면 수집이 빨라진다. **(아직 등록 안 함)**
 
 ## 자주 하는 작업 가이드
 - **새 기수 반영**: `apply.html`의 `#class-table` **표 한 곳만** 고친다.
