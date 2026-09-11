@@ -375,6 +375,9 @@ h1, h2, h3, h4 {
 
 body.poster-open { overflow: hidden; }
 .poster-modal { position: fixed; inset: 0; z-index: 200; background: rgba(11, 31, 58, .82); display: flex; align-items: flex-start; justify-content: center; padding: 40px 20px; overflow-y: auto; }
+/* ⚠️ 이 줄을 지우지 말 것. 위의 display:flex 가 브라우저 기본 [hidden]{display:none} 을
+   이겨버려서, 없으면 모달이 항상 떠 있는 상태가 된다(파란 화면으로 페이지가 덮임). */
+.poster-modal[hidden] { display: none; }
 .pm-inner { position: relative; max-width: 900px; width: 100%; }
 .pm-inner img { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 24px 60px rgba(0,0,0,.45); background: var(--color-paper); }
 .pm-close { position: sticky; top: 0; float: right; margin: 0 0 -46px 0; width: 40px; height: 40px; font-size: 26px; line-height: 1; color: #fff; background: rgba(0,0,0,.55); border: 0; border-radius: 50%; cursor: pointer; z-index: 1; }
