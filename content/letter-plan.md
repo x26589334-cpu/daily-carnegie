@@ -22,7 +22,7 @@
 - [x] `honest-appreciation` | "수고했어"가 통하지 않는 이유 | 원칙 2 솔직한 인정
 - [x] `want-it-themselves` | 시키지 않아도 움직이게 하려면 | 원칙 3 상대의 욕구를 자극한다
 - [x] `genuine-interest` | 회식 말고, 관심 | 원칙 4 진심 어린 관심
-- [ ] `smile-first` | 대표의 표정이 조직의 온도를 정한다 | 원칙 5 미소
+- [x] `smile-first` | 대표의 표정이 조직의 온도를 정한다 | 원칙 5 미소
 - [x] `remember-names` | 직원 이름을 기억하는 것이 왜 성과가 되는가 | 원칙 6 이름
 - [x] `let-them-talk` | 회의에서 아무도 의견을 내지 않을 때 | 원칙 7 상대가 말하게 한다
 - [ ] `their-interest` | 상대가 관심 있는 것으로 말문을 연다 | 원칙 8 상대의 관심사
