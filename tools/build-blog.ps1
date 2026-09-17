@@ -99,6 +99,7 @@ $blog = @"
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600;700&display=swap" />
   <link rel="stylesheet" href="assets/css/style.css?v=$CACHE" />
+<script src="analytics.js" defer></script>
 </head>
 <body>
 

@@ -68,6 +68,7 @@ $html = @"
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BlogPosting","headline":"$(Esc $Title)","datePublished":"$Date","description":"$(Esc $Desc)","author":{"@type":"Organization","name":"데일리카네기"},"publisher":{"@type":"Organization","name":"데일리카네기"},"mainEntityOfPage":"https://dailycarnegie.com/blog/$Slug.html"}
   </script>
+<script src="../analytics.js" defer></script>
 </head>
 <body>
 
