@@ -118,7 +118,7 @@ h1, h2, h3, h4 {
 /* ---------- Header ---------- */
 .site-header {
   position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.9);
-  backdrop-filter: saturate(160%) blur(12px); border-bottom: 1px solid var(--color-line);
+  -webkit-backdrop-filter:saturate(160%) blur(12px);backdrop-filter:saturate(160%) blur(12px); border-bottom: 1px solid var(--color-line);
 }
 .site-header .container { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; }
 .logo { display: flex; align-items: center; gap: 12px; color: var(--color-ink); }
@@ -583,7 +583,7 @@ body.poster-open { overflow: hidden; }
   .nav-toggle { display: none !important; }
   .mobile-cat-bar {
     display: block; position: sticky; top: var(--header-h); z-index: 99;
-    background: rgba(255,255,255,.95); backdrop-filter: saturate(160%) blur(10px);
+    background:rgba(255,255,255,.97); -webkit-backdrop-filter:saturate(160%) blur(10px);backdrop-filter:saturate(160%) blur(10px);
     border-bottom: 1px solid var(--color-line); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none;
   }
   .mobile-cat-bar::-webkit-scrollbar { display: none; }
