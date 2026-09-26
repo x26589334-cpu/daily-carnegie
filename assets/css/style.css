@@ -379,7 +379,7 @@ body.poster-open { overflow: hidden; }
 .poster-modal[hidden] { display: none; }
 .pm-inner { position: relative; max-width: 900px; width: 100%; }
 .pm-inner img { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: 0 24px 60px rgba(0,0,0,.45); background: var(--color-paper); }
-.pm-close { position: sticky; top: 0; float: right; margin: 0 0 -46px 0; width: 40px; height: 40px; font-size: 26px; line-height: 1; color: #fff; background:rgb(0,0,0); border: 0; border-radius: 50%; cursor: pointer; z-index: 1; }
+.pm-close { position: sticky; top: 0; float: right; margin: 0 0 -46px 0; width: 40px; height: 40px; font-size: 26px; line-height: 1; color: #fff; background: rgba(0,0,0,.55); border: 0; border-radius: 50%; cursor: pointer; z-index: 1; }
 .pm-close:hover { background: rgba(0,0,0,.8); }
 .pm-close:focus-visible { outline: 2px solid #E2C77E; outline-offset: 2px; }
 
