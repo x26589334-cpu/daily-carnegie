@@ -117,9 +117,8 @@ h1, h2, h3, h4 {
 
 /* ---------- Header ---------- */
 .site-header {
-  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.9);
-  -webkit-backdrop-filter:saturate(160%) blur(12px);backdrop-filter:saturate(160%) blur(12px); border-bottom: 1px solid var(--color-line);
-}
+  position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.9); border-bottom: 1px solid var(--color-line);
+;isolation:isolate;-webkit-backface-visibility:hidden;backface-visibility:hidden;will-change:opacity}
 .site-header .container { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; }
 .logo { display: flex; align-items: center; gap: 12px; color: var(--color-ink); }
 .logo .mark {
